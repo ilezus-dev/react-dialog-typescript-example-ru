@@ -2231,6 +2231,11 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/webfontloader@^1.6.33":
+  version "1.6.33"
+  resolved "https://registry.yarnpkg.com/@types/webfontloader/-/webfontloader-1.6.33.tgz#cdef66b53341193ce1b4d4ad771703689db77708"
+  integrity sha512-2oOYQp0UBo/+NFsxdlF9ZwS1rq1q/wGnLsZMN7X+/xArRZoLPQhOGecesaRYJ2uhHyJ53TgitDORu2IV47FhHw==
+
 "@types/webpack-sources@*":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@types/webpack-sources/-/webpack-sources-3.2.0.tgz#16d759ba096c289034b26553d2df1bf45248d38b"

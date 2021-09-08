@@ -1,8 +1,8 @@
-export const getTheme = () => {
+export const getTheme = (): string => {
   return localStorage.getItem("application-theme") || "dark";
 };
 
-export const setTheme = (theme) => {
+export const setTheme = (theme: string): void => {
   localStorage.setItem("application-theme", theme);
 
   if (theme === "dark") {
