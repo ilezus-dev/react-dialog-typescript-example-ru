@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import dayjs from "dayjs";
 import Calendar from "dayjs/plugin/calendar";
@@ -6,7 +5,11 @@ import "./styles.css";
 
 dayjs.extend(Calendar);
 
-const Title = ({ date }) => (
+interface IProps {
+  date: string;
+}
+
+const Title = ({ date }: IProps) => (
   <div className="title">
     {dayjs(date).calendar(null, {
       sameDay: "[Сегодня]",

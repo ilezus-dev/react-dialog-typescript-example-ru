@@ -1,7 +1,10 @@
 import dayjs from "dayjs";
+import { IServerMessage, IMessage, ITitleMessage } from "../../types";
 
-export const normalizeDialog = (dialog) => {
-  const newDialog = [];
+export const normalizeDialog = (
+  dialog: IServerMessage[]
+): (ITitleMessage | IMessage)[] => {
+  const newDialog: (ITitleMessage | IMessage)[] = [];
 
   dialog.forEach((item, i) => {
     if (i === 0 || dialog[i - 1]) {
@@ -27,7 +30,7 @@ export const normalizeDialog = (dialog) => {
         messages: [
           {
             text: item.message,
-            status: item.status,
+            status: item.status!,
             id: item.id,
             date: item.date,
           },
@@ -37,10 +40,10 @@ export const normalizeDialog = (dialog) => {
       const position = newDialog.length - 1;
 
       newDialog[position] = {
-        ...newDialog[position],
-        messages: newDialog[position].messages.concat({
+        ...(newDialog[position] as IMessage),
+        messages: (newDialog[position] as IMessage).messages.concat({
           text: item.message,
-          status: item.status,
+          status: item.status!,
           id: item.id,
           date: item.date,
         }),

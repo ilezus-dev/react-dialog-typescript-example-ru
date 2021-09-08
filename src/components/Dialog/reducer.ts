@@ -1,4 +1,15 @@
-export default function reducer(state, action) {
+import { IServerMessage, Status } from "../../types";
+
+export type State = {
+  messages: IServerMessage[];
+};
+
+type Action =
+  | { type: "add-message"; payload: IServerMessage }
+  | { type: "remove-message"; payload: number }
+  | { type: "update-status"; payload: { id: number; status: Status } };
+
+export default function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "remove-message":
       return {

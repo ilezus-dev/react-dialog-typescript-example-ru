@@ -4,13 +4,28 @@ import classNames from "classnames";
 import dayjs from "dayjs";
 import { IoIosTrash } from "react-icons/io";
 import Icon from "../../Icon";
+import { IMessageItem } from "../../../types";
 
 import "./styles.css";
 
-const Item = ({ isReverse, isRemovable, messages, avatar, onRemove }) => {
-  const onRemoveHandle = (event) => {
+interface IProps {
+  isReverse: boolean;
+  isRemovable: boolean;
+  messages: IMessageItem[];
+  avatar: string;
+  onRemove: (id: number) => void;
+}
+
+const Item = ({
+  isReverse,
+  isRemovable,
+  messages,
+  avatar,
+  onRemove,
+}: IProps) => {
+  const onRemoveHandle = (event: React.MouseEvent<HTMLOrSVGElement>) => {
     const { id } = event.currentTarget.dataset;
-    onRemove(+id);
+    onRemove(+(id as string));
   };
 
   return (

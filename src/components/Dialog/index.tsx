@@ -1,20 +1,25 @@
-import React, { useReducer, useEffect, useRef } from "react";
+import { useReducer, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 import Item from "./Item";
 import Title from "./Title";
 
 import { normalizeDialog } from "./helpers";
-import reducer from "./reducer";
+import reducer, { State } from "./reducer";
+import { IServerMessage } from "../../types";
 import data from "../../data";
 
 import "./styles.css";
 
-const Dialog = ({ newMessage }) => {
-  const dialogRef = useRef();
+interface IProps {
+  newMessage: IServerMessage | null;
+}
+
+const Dialog = ({ newMessage }: IProps) => {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const [state, dispatch] = useReducer(reducer, {
     messages: data,
-  });
+  } as State);
 
   useEffect(() => {
     if (newMessage) {
@@ -36,10 +41,10 @@ const Dialog = ({ newMessage }) => {
   }, [newMessage]);
 
   useEffect(() => {
-    dialogRef.current.scrollTop = dialogRef.current.scrollHeight;
+    dialogRef.current!.scrollTop = dialogRef.current!.scrollHeight;
   }, [state.messages.length]);
 
-  const onRemove = (id) => {
+  const onRemove = (id: number) => {
     dispatch({
       type: "remove-message",
       payload: id,

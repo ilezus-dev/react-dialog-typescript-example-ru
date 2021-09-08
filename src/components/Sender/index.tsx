@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
+import { IServerMessage } from "../../types";
 import "./styles.css";
 
-const Sender = ({ onAddMessage }) => {
+interface IProps {
+  onAddMessage(message: IServerMessage): void;
+}
+
+const Sender = ({ onAddMessage }: IProps) => {
   const [value, setValue] = useState("");
 
-  const onChange = (event) => setValue(event.target.value);
-  const onSubmit = (event) => {
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setValue(event.target.value);
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     onAddMessage({

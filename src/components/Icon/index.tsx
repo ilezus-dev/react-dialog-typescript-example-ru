@@ -1,9 +1,14 @@
-import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import * as icons from "../../icons";
 
-const Icon = ({ size = 20, name, className = "" }) => {
+interface IProps {
+  name: keyof typeof icons;
+  size?: number | [number, number];
+  className?: string;
+}
+
+const Icon = ({ size = 20, name, className = "" }: IProps) => {
   const [width, height] = size instanceof Array ? size : [size, size];
   const [icon, viewBox] = icons[name];
 

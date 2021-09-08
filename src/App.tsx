@@ -4,12 +4,13 @@ import Dialog from "./components/Dialog";
 import Sender from "./components/Sender";
 import Header from "./components/Header";
 
-import { AppContext } from "./context";
+import { AppContext, IContext } from "./context";
 import { getTheme, setTheme } from "./helpers/theme";
+import { IServerMessage } from "./types";
 
 const App = () => {
-  const [message, addMessage] = useState(null);
-  const [theme, toggleTheme] = useState(getTheme());
+  const [message, addMessage] = useState<IServerMessage | null>(null);
+  const [theme, toggleTheme] = useState<IContext["theme"]>(getTheme());
 
   useEffect(() => {
     setTheme(theme);
@@ -17,10 +18,12 @@ const App = () => {
 
   return (
     <AppContext.Provider
-      value={{
-        theme,
-        toggleTheme,
-      }}
+      value={
+        {
+          theme,
+          toggleTheme,
+        } as IContext
+      }
     >
       <div className="container">
         <Header />
