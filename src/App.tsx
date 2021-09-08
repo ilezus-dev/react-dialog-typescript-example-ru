@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Dialog from "./components/Dialog";
 import Sender from "./components/Sender";
