@@ -16,7 +16,7 @@ const Sender = ({ onAddMessage }: IProps) => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    setValue("");
     onAddMessage({
       id: Date.now(),
       avatar:
@@ -26,7 +26,6 @@ const Sender = ({ onAddMessage }: IProps) => {
       is: "my",
       status: "sended",
     });
-    setValue("");
   };
 
   return (

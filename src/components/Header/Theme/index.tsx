@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../../../context";
+import { AppContext, IContext } from "../../../context";
 import { IoIosMoon, IoIosSunny } from "react-icons/io";
 import "./styles.css";
 
@@ -8,7 +8,7 @@ const Theme = () => {
 
   const onToggleTheme = (event: React.MouseEvent<HTMLDivElement>) => {
     const { theme } = event.currentTarget.dataset;
-    toggleTheme(theme!);
+    toggleTheme(theme as IContext["theme"]);
   };
 
   return (
