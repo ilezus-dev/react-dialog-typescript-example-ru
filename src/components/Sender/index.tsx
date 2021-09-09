@@ -10,8 +10,9 @@ interface IProps {
 const Sender = ({ onAddMessage }: IProps) => {
   const [value, setValue] = useState("");
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
+  };
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
