@@ -18,12 +18,10 @@ const App = () => {
 
   return (
     <AppContext.Provider
-      value={
-        {
-          theme,
-          toggleTheme,
-        } as IContext
-      }
+      value={{
+        theme,
+        toggleTheme,
+      }}
     >
       <div className="container">
         <Header />
