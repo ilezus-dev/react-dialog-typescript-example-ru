@@ -39,8 +39,5 @@ export default function reducer(state: State, action: Action): State {
           return message;
         }),
       };
-
-    default:
-      throw new Error("Unknown action type");
   }
 }
