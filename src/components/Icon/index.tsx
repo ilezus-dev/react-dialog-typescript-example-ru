@@ -24,7 +24,10 @@ const Icon = ({ size = 20, name, className = "" }: IProps) => {
 };
 
 Icon.propTypes = {
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  ]),
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
