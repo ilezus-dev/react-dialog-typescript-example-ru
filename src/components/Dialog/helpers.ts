@@ -38,10 +38,11 @@ export const normalizeDialog = (
       });
     } else {
       const position = newDialog.length - 1;
+      const currentItem = newDialog[position] as IMessage;
 
       newDialog[position] = {
-        ...(newDialog[position] as IMessage),
-        messages: (newDialog[position] as IMessage).messages.concat({
+        ...currentItem,
+        messages: currentItem.messages.concat({
           text: item.message,
           status: item.status!,
           id: item.id,
