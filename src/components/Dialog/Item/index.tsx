@@ -24,8 +24,8 @@ const Item = ({
   onRemove,
 }: IProps) => {
   const onRemoveHandle = (event: React.MouseEvent<HTMLOrSVGElement>) => {
-    const { id } = event.currentTarget.dataset;
-    onRemove(+(id as string));
+    const { id } = event.currentTarget.dataset!;
+    onRemove(+id!);
   };
 
   return (
